@@ -135,7 +135,6 @@ textarea {
   *position: relative;
   *z-index: 2;
   overflow: visible;
-  margin-bottom: 18px;
 }
 .navbar-inner {
   min-height: 40px;
