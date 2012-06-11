@@ -171,7 +171,14 @@ textarea {
 .navbar .brand {
   float: left;
   display: block;
-  padding: 8px 20px 12px;
+{{#if custom_icon_top_padding}}
+    padding-top: {{custom_icon_top_padding}}px; /* a */
+    padding-bottom: {{custom_icon_top_padding}}px; /* a */
+{{else}}
+    padding-top: 8px;
+{{/if}}
+  padding-left: 20px;
+  padding-right: 20px;
   margin-left: -20px;
   font-size: 20px;
   font-weight: 200;

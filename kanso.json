@@ -9,5 +9,8 @@
     ],
     "dependencies": {
         "modules": null
+    },
+    "topbar" : {
+        "height" : 40
     }
 }
