@@ -1,0 +1,13 @@
+{
+    "name": "bootstrap-dashboard-theme",
+    "version": "0.0.1",
+    "description": "A bootstrap based theme",
+    "modules": [
+        "template.html",
+        "topbar.css",
+        "type"
+    ],
+    "dependencies": {
+        "modules": null
+    }
+}
