@@ -1,74 +1,55 @@
-{{#if settings.top_nav_bar.show_brand}}
-
-    {{#if settings.top_nav_bar.brand_link}}
-        <a href="{{settings.top_nav_bar.brand_link}}">
-            <img class="home home-icon-custom" src="{{dashboard_url}}_db/settings/{{settings.top_nav_bar.icon_name}}" />
-        </a>
-    {{else}}
-        <img class="home home-icon-custom" src="{{dashboard_url}}_db/settings/{{settings.top_nav_bar.icon_name}}" />
-    {{/if}}
-{{else}}
-    <a href="{{home_url}}" class="home home-icon"  title="Home" ></a>
-{{/if}}
-
-<ul class="kanso-nav">
-
-{{#if settings.top_nav_bar.show_brand}}
-    <li class="home"><a class="home" href="{{home_url}}" rel="external">Home</a></li>
-{{/if}}
-{{#unless hide_apps}}
-    {{#each apps.apps}}
-        <li><a href="{{link}}"  {{#if db}}data-db="{{db}}"{{/if}} {{#if external}}rel="external"{{/if}}>{{title}}</a></li>
-    {{/each}}
-    {{#if apps.more_apps}}
-        <li><a href="#" class="more-apps">More <span class="ddown">&#9660;</span></a></li>
-    {{/if}}
-{{/unless}}
-{{#if isAdmin}}
-        <li><a href="{{settings_url}}">Settings</a></li>
-        {{#if settings.top_nav_bar.admin_show_futon}}
-            <li><a href="/_utils/">Futon</a></li>
-        {{/if}}
-{{/if}}
-</ul>
-<div id="dashboard-topbar-session" data-userCtx="{{usrCtxString}}" data-login="{{login_url}}" data-sessiontype="{{sessionType}}">
-    {{#unless isAdminParty}}
-        {{#if username}}
-            <a class="username" href="">
-
-                {{#if settings.top_nav_bar.show_gravatar}}
-                    <img src="{{avatar}}" alt="{{username}}">
-                {{/if}}
-                {{#if settings.top_nav_bar.show_username}}
-                    {{username}}
-                {{/if}}
-            </a>
-        {{else}}
-            <a class="login" href="{{login_url}}">Login</a>
-        {{/if}}
-    {{/unless}}
-    </div>
-</div>
-{{#if username}}
-<div id="dashboard-profile">
-    <img src="{{avatar_large}}"/>
-    <div class="info">
-        <h4>{{username}}</h4>
-        <ul>
-            {{#if profile_url}}
-            <li><a href="{{profile_url}}">Profile</a></li>
+<div class="navbar" xmlns="http://www.w3.org/1999/html">
+  <div class="navbar-inner">
+    <div class="container">
+        {{#if settings.top_nav_bar.show_brand}}
+            {{#if settings.top_nav_bar.brand_link}}
+                <a class="brand" href="{{settings.top_nav_bar.brand_link}}">
+                    <img src="{{dashboard_url}}_db/settings/{{settings.top_nav_bar.icon_name}}" />
+                </a>
+            {{else}}
+                <a class="brand" href="#">
+                    <img class="home home-icon-custom" src="{{dashboard_url}}_db/settings/{{settings.top_nav_bar.icon_name}}" />
+                </a>
             {{/if}}
-            <li><a class="logout" href="">Logout</a></li>
+        {{/if}}
+
+        <ul class="nav">
+            {{#if settings.top_nav_bar.show_brand}}
+                <li><a href="{{home_url}}" rel="external">Home</a></li>
+            {{/if}}
+            {{#unless hide_apps}}
+                {{#each apps.apps}}
+                    <li><a href="{{link}}"  {{#if db}}data-db="{{db}}"{{/if}} {{#if external}}rel="external"{{/if}}>{{title}}</a></li>
+                {{/each}}
+            {{/unless}}
+            {{#if isAdmin}}
+                    <li><a href="{{settings_url}}">Settings</a></li>
+                    {{#if settings.top_nav_bar.admin_show_futon}}
+                        <li><a href="/_utils/">Futon</a></li>
+                    {{/if}}
+            {{/if}}
         </ul>
+        <div id="dashboard-topbar-session" data-userCtx="{{usrCtxString}}" data-login="{{login_url}}" data-sessiontype="{{sessionType}}">
+        <ul class="nav pull-right">
+            {{#unless isAdminParty}}
+                {{#if username}}
+                    <li>
+                        <a class="username" href="">
+
+                            {{#if settings.top_nav_bar.show_gravatar}}
+                                <img src="{{avatar}}" alt="{{username}}">
+                            {{/if}}
+                            {{#if settings.top_nav_bar.show_username}}
+                                {{username}}
+                            {{/if}}
+                        </a>
+                    </li>
+                {{else}}
+                    <li><a class="login" href="{{login_url}}">Login</a></li>
+                {{/if}}
+            {{/unless}}
+        </ul>
+        </div>
     </div>
+  </div>
 </div>
-{{/if}}
-{{#if apps.more_apps}}
-<div id="dashboard-more-apps">
-    <ul>
-    {{#each apps.more_apps}}
-        <li><a href="{{link}}"  {{#if db}}data-db="{{db}}"{{/if}}  {{#if external}}rel="external"{{/if}}>{{title}}</a></li>
-    {{/each}}
-    </li>
-</div>
-{{/if}}
