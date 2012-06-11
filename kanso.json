@@ -7,8 +7,12 @@
         "topbar.css",
         "type"
     ],
+    "attachments" : [
+        "bootstrap-dropdown.js"
+    ],
     "dependencies": {
-        "modules": null
+        "modules": null,
+        "attachments": null
     },
     "topbar" : {
         "height" : 40
